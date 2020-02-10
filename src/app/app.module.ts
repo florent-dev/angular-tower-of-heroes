@@ -8,8 +8,8 @@ import {FormsModule} from "@angular/forms";
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { WeaponsComponents } from './weapon/weapon.component';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
+import { WeaponsComponent } from './weapons/weapons.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    WeaponsComponents,
+    WeaponsComponent,
     WeaponDetailComponent
   ],
   imports: [
