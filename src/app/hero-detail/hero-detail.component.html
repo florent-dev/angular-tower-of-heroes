@@ -1,15 +1,21 @@
 <div *ngIf="hero">
 
-  <h2>{{hero.name | uppercase}} Details</h2>
+  <h2>Détails de {{hero.name | uppercase}}</h2>
 
   <div>
     <span>ID:</span> {{hero.id}}
-  </div>
+  </div><br/>
 
   <div>
-    <label for="name">Nom :</label> <input id="name" [(ngModel)]="hero.name" placeholder="name"/>
-  </div>
+    <label for="name">Nom :</label> <input id="name" [(ngModel)]="hero.name" placeholder="Nom"/><br/><br/>
+    <label for="attack">Attaque :</label> <input id="attack" type="number" min="1" max="36" [(ngModel)]="hero.attack" placeholder="Points d'attaque"/>
+    <label for="dodge">Esquive :</label> <input id="dodge" type="number" min="1" max="36" [(ngModel)]="hero.dodge" placeholder="Points d'esquive"/>
+    <label for="damage">Dégâts :</label> <input id="damage" type="number" min="1" max="36" [(ngModel)]="hero.damage" placeholder="Points de dommage"/>
+    <label for="health">Points de vie :</label> <input id="health" type="number" min="1" max="36" [(ngModel)]="hero.health" placeholder="Points de vie"/>
+  </div><br/>
 
-  <button (click)="goBack()">go back</button>
+  <div>Points restants à attribuer : <b>{{ hero.attack + hero.health + hero.dodge + hero.damage }} / 40</b></div><br/>
+
+  <button (click)="goBack()">Revenir à l'accueil</button>
 
 </div>
