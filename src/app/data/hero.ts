@@ -1,3 +1,5 @@
+import {Weapon} from "./weapon";
+
 export class Hero {
   id: number;
   name: string;
@@ -5,4 +7,5 @@ export class Hero {
   dodge: number;
   damage: number;
   health: number;
+  weapon?: Weapon;
 }
