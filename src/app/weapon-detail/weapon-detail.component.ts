@@ -25,7 +25,7 @@ export class WeaponDetailComponent implements OnInit {
   }
 
   getWeapon(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.weaponService.getWeapon(id)
       .subscribe(weapon => this.weapon = weapon);
   }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "towerofheroes-3079c": {
+      "hosting": {
+        "angular-tour-of-heroes-pouzolf": [
+          "towerofheroes-3079c"
+        ]
+      }
+    }
+  }
+}

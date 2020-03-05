@@ -1,21 +1,23 @@
-<style>
-body {
-  background: black;
-  color: wheat;
-}
-</style>
+<div class="container">
 
-<h1>{{ title }}</h1>
+  <h1>{{ title }}</h1>
 
-<hr>
+  <hr>
 
-<nav>
-  <a routerLink="/dashboard">Accueil</a>
-  <a routerLink="/heroes">Héros</a>
-  <a routerLink="/weapons">Armes</a>
-</nav>
+  <div class="navbar">
+    <div class="nav-item">
+      <a routerLink="/dashboard">Accueil</a>
+    </div>
+    <div class="nav-item">
+      <a routerLink="/heroes">Héros</a>
+    </div>
+    <div class="nav-item">
+      <a routerLink="/weapons">Armes</a>
+    </div>
+  </div>
 
-<hr>
+  <hr>
 
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>

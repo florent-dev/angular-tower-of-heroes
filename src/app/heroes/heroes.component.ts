@@ -23,7 +23,12 @@ export class HeroesComponent implements OnInit {
   }
 
   newHeroAction() {
-    this.heroService.createHero(new Hero("Test", 1, 1, 1, 1));
+    // @ts-ignore
+    let hero: Hero = {
+      id: '0', name: 'Windstorm',
+      attack: 1, damage: 1, dodge: 1, health: 1
+    };
+    this.heroService.addHero(hero);
     this.messageService.add("création Héro test");
   }
 }
