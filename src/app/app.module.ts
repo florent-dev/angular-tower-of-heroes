@@ -5,24 +5,26 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeroesComponent} from './heroes/heroes.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {HeroComponent} from './hero/hero.component';
 import {MessagesComponent} from './messages/messages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {WeaponDetailComponent} from './weapon-detail/weapon-detail.component';
+import {WeaponComponent} from './weapon/weapon.component';
 import {WeaponsComponent} from './weapons/weapons.component';
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
+import { FightComponent } from './fight/fight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent,
+    HeroComponent,
     MessagesComponent,
     DashboardComponent,
     WeaponsComponent,
-    WeaponDetailComponent,
+    WeaponComponent,
+    FightComponent,
   ],
     imports: [
         AppRoutingModule,

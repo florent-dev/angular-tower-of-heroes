@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-import { WeaponDetailComponent } from "./weapon-detail/weapon-detail.component";
+import { HeroComponent }  from './hero/hero.component';
 import { WeaponsComponent } from "./weapons/weapons.component";
+import {FightComponent} from "./fight/fight.component";
+import {WeaponComponent} from "./weapon/weapon.component";
 
 
 const routes: Routes = [
@@ -12,8 +13,11 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'weapons', component: WeaponsComponent },
-  { path: 'herodetail/:id', component: HeroDetailComponent },
-  { path: 'weapondetail/:id', component: WeaponDetailComponent },
+  { path: 'hero/:id', component: HeroComponent },
+  { path: 'hero', component: HeroComponent },
+  { path: 'weapon/:id', component: WeaponComponent },
+  { path: 'weapon', component: WeaponComponent },
+  { path: 'fight', component: FightComponent },
 ];
 
 @NgModule({

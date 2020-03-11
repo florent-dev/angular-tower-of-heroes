@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import { MessageService } from './message.service';
 
-import { Hero } from './data/hero';
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {map} from "rxjs/operators";
+import {Hero} from "../entity/hero";
 
 
 @Injectable({

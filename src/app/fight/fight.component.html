@@ -1,0 +1,25 @@
+<div class="container py-4">
+
+  <div class="row">
+    <div class="col-5 text-center">
+      <h2>Héro 1</h2>
+      <h3 class="text-info">{{ selectedHero !== undefined ? selectedHero.name : '' }}</h3>
+
+      <select id="selectedHero" class="form-control" [(ngModel)]="selectedHero">
+        <option [ngValue]="" disabled selected="selected">Sélectionnez un héro</option>
+        <option *ngFor="let hero of heroes" [ngValue]="hero">{{ hero.name }}</option>
+      </select>
+
+      <p class="text-danger">{{ error }}</p>
+      <button class="btn btn-info w-100" (click)="initFight()">Lancer un combat</button>
+    </div>
+    <div class="col-2 text-center">
+      <h2>VS</h2>
+    </div>
+    <div class="col-5 text-center">
+      <h2>Héro 2</h2>
+      <h3 class="text-info">{{ botHero !== undefined ? botHero.name : '' }}</h3>
+    </div>
+  </div>
+
+</div>

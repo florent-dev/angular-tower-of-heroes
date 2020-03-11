@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../data/hero';
-import { HeroService } from '../hero.service';
-import {WeaponService} from "../weapon.service";
-import {Weapon} from "../data/weapon";
+import { Hero } from '../entity/hero';
+import { HeroService } from '../services/hero.service';
+import {WeaponService} from "../services/weapon.service";
+import {Weapon} from "../entity/weapon";
 
 @Component({
   selector: 'app-dashboard',

@@ -1,9 +1,11 @@
 <h2>Liste des armes</h2>
 
-<ul class="heroes">
-  <li *ngFor="let weapon of weapons">
-    <a routerLink="/weapondetail/{{weapon.id}}">
-      <span class="badge">{{weapon.id}}</span> {{weapon.name}}
-    </a>
-  </li>
+<ul class="weapons">
+  <a *ngFor="let weapon of weapons" routerLink="/weapon/{{weapon.id}}" class="p-2 weapon bg-dark">
+    {{weapon.name}}
+  </a>
 </ul>
+
+<hr>
+
+<button class="btn btn-info" type="button" routerLink="/weapon">Ajouter une arme</button>

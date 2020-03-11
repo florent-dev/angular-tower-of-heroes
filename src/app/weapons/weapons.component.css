@@ -1,0 +1,29 @@
+/* HeroesComponent's private CSS styles */
+.weapons {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.weapon {
+  display: block;
+  cursor: pointer;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 4px;
+  color: #BBD8DC;
+  text-decoration: none;
+}
+.weapon:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.weapon.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.weapon.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}

@@ -1,12 +1,11 @@
 <h2>Liste des héros</h2>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" class="p-2">
-    <a routerLink="/herodetail/{{hero.id}}">
+    <a *ngFor="let hero of heroes" routerLink="/herodetail/{{hero.id}}" class="p-2 hero">
       {{hero.name}}
     </a>
-  </li>
 </ul>
 
-Ajouter un héro :
-<button class="button" type="button" (click)="newHeroAction()">Créer héro test</button>
+<hr>
+
+<button class="btn btn-info" type="button" routerLink="/hero">Ajouter un héro</button>
