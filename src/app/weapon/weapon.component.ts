@@ -26,7 +26,7 @@ export class WeaponComponent implements OnInit {
       this.getWeapon();
     } else {
       this.weapon = new Weapon();
-      this.weapon.attack = 0; this.weapon.damage = 0, this.weapon.dodge = 0, this.weapon.health = 0;
+      this.weapon.attack = 0; this.weapon.damage = 0; this.weapon.dodge = 0; this.weapon.health = 0;
     }
   }
 

@@ -1,15 +1,12 @@
 <div *ngIf="hero">
 
-  <h2>{{ hero.id ? "Édition du" : "Création d'un"}} héro {{ hero.id ? (hero.name | uppercase) : ''}}</h2>
+  <h2>{{ hero.id ? "Édition du" : "Création d'un" }} héro {{ hero.id ? (hero.name | uppercase) : ''}}</h2>
 
   <div class="card">
     <div class="card-body">
 
-      <h5 class="card-title">
-        <label for="name">Nom :</label> <input class="form-control" id="name" [(ngModel)]="hero.name" placeholder="Nom"/>
-      </h5>
-
       <p class="card-text">
+        <label for="name">Nom :</label> <input class="form-control" id="name" [(ngModel)]="hero.name" placeholder="Nom"/>
         <label for="attack">Attaque :</label> <input class="form-control" id="attack" type="number" min="1" max="36" [(ngModel)]="hero.attack" placeholder="Points d'attaque"/>
         <label for="dodge">Esquive :</label> <input class="form-control" id="dodge" type="number" min="1" max="36" [(ngModel)]="hero.dodge" placeholder="Points d'esquive"/>
         <label for="damage">Dégâts :</label> <input class="form-control" id="damage" type="number" min="1" max="36" [(ngModel)]="hero.damage" placeholder="Points de dommage"/>

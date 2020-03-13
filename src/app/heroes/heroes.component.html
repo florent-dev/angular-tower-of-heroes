@@ -1,10 +1,25 @@
 <h2>Liste des héros</h2>
 
-<ul class="heroes">
-    <a *ngFor="let hero of heroes" routerLink="/herodetail/{{hero.id}}" class="p-2 hero">
-      {{hero.name}}
-    </a>
-</ul>
+<table id="tableSortHeroes" mdbTable>
+  <thead>
+  <tr>
+    <th *ngFor="let filter of filterElements; let i = index" aria-controls="tableSortHeroes" scope="col" [mdbTableSort]="heroes" [sortBy]="filterElements[i]">{{ filter | titlecase }}
+      ⇵
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let hero of heroes; let i = index">
+    <th scope="row">
+      <a routerLink="/weapon/{{ hero.id }}">{{ hero.name }}</a>
+    </th>
+    <td>{{ hero.attack }}</td>
+    <td>{{ hero.health }}</td>
+    <td>{{ hero.damage }}</td>
+    <td>{{ hero.dodge }}</td>
+  </tr>
+  </tbody>
+</table>
 
 <hr>
 

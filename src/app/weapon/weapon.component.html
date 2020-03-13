@@ -1,15 +1,12 @@
 <div *ngIf="weapon">
 
-  <h2>{{ weapon.id ? "Édition" : "Création"}} de l'arme {{weapon.name | uppercase}}</h2>
+  <h2>{{ weapon.id ? "Édition de l'" : "Création d'une " }}arme {{weapon.name | uppercase}}</h2>
 
   <div class="card">
     <div class="card-body">
 
-      <h5 class="card-title">
-        <label for="name">Nom :</label> <input class="form-control" id="name" [(ngModel)]="weapon.name" placeholder="Nom"/>
-      </h5>
-
       <p class="card-text">
+        <label for="name">Nom :</label> <input class="form-control" id="name" [(ngModel)]="weapon.name" placeholder="Nom"/>
         <label for="attack">Attaque :</label> <input class="form-control" id="attack" type="number" min="-5" max="5" [(ngModel)]="weapon.attack" placeholder="Bonus d'attaque"/>
         <label for="dodge">Esquive :</label> <input class="form-control" id="dodge" type="number" min="-5" max="5" [(ngModel)]="weapon.dodge" placeholder="Bonus d'esquive"/>
         <label for="damage">Dégâts :</label> <input class="form-control" id="damage" type="number" min="-5" max="5" [(ngModel)]="weapon.damage" placeholder="Bonus de dommage"/>

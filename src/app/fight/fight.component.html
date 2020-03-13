@@ -5,20 +5,27 @@
       <h2>Héro 1</h2>
       <h3 class="text-info">{{ selectedHero !== undefined ? selectedHero.name : '' }}</h3>
 
-      <select id="selectedHero" class="form-control" [(ngModel)]="selectedHero">
+      <select *ngIf="!currentRound" id="selectedHero" class="form-control" [(ngModel)]="selectedHero">
         <option [ngValue]="" disabled selected="selected">Sélectionnez un héro</option>
         <option *ngFor="let hero of heroes" [ngValue]="hero">{{ hero.name }}</option>
       </select>
 
-      <p class="text-danger">{{ error }}</p>
-      <button class="btn btn-info w-100" (click)="initFight()">Lancer un combat</button>
+      <p class="text-danger">{{ info }}</p>
+      <button class="btn btn-info w-100" *ngIf="!currentRound" (click)="initFight()">Lancer un combat</button>
     </div>
     <div class="col-2 text-center">
       <h2>VS</h2>
+      <button class="btn btn-info w-100" *ngIf="currentRound" (click)="nextRound()">Attaquer</button>
     </div>
     <div class="col-5 text-center">
       <h2>Héro 2</h2>
       <h3 class="text-info">{{ botHero !== undefined ? botHero.name : '' }}</h3>
+    </div>
+  </div>
+
+  <div *ngIf="fightLogs != ''" class="row">
+    <div class="col text-center">
+      {{ fightLogs }}
     </div>
   </div>
 

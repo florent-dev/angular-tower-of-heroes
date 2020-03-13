@@ -12,8 +12,9 @@ export class FightComponent implements OnInit {
   selectedHero: Hero;
   botHero: Hero;
   rounds: 5;
-  currentRound: Number;
+  currentRound = 0;
   info = '';
+  fightLogs = '';
 
   constructor(private heroService: HeroService) { }
 
@@ -26,22 +27,23 @@ export class FightComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  initFight() {
+  initFight(): void {
     if (this.selectedHero === undefined) {
       this.info = 'Veuillez choisir un héro pour combattre';
     } else {
       this.info = '';
+      this.addFightLog('Le combat débute');
       this.sortRandomBotHero();
       this.currentRound = 1;
       this.nextRound();
     }
   }
 
-  finishFight() {
-
+  finishFight(): void {
+    this.addFightLog('Fin du combat');
   }
 
-  nextRound() {
+  nextRound(): void {
     if(this.currentRound === this.rounds) {
       this.finishFight();
     } else {
@@ -50,7 +52,11 @@ export class FightComponent implements OnInit {
     }
   }
 
-  sortRandomBotHero() {
+  sortRandomBotHero(): void {
     this.botHero = this.heroes[Math.floor(Math.random() * this.heroes.length)];
+  }
+
+  addFightLog(log: string): void {
+    this.fightLogs += '\n' + log;
   }
 }

@@ -13,7 +13,8 @@ import {WeaponsComponent} from './weapons/weapons.component';
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
-import { FightComponent } from './fight/fight.component';
+import {FightComponent} from './fight/fight.component';
+import {MDBBootstrapModule} from "angular-bootstrap-md";
 
 @NgModule({
   declarations: [
@@ -26,15 +27,16 @@ import { FightComponent } from './fight/fight.component';
     WeaponComponent,
     FightComponent,
   ],
-    imports: [
-        AppRoutingModule,
-        FormsModule,
-        BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule,
-        ReactiveFormsModule,
-        // imports firebase/firestore, only needed for database features
-    ],
+  imports: [
+    AppRoutingModule,
+    FormsModule,
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
+    // imports firebase/firestore, only needed for database features
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

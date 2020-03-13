@@ -10,34 +10,17 @@ import {MessageService} from "../services/message.service";
 })
 export class WeaponsComponent implements OnInit {
   weapons: Weapon[];
-  newWeapon: Weapon;
-  info = '';
+  elements: any = [];
+  filterElements = ['name', 'attack', 'health', 'damage', 'dodge'];
 
-  constructor(private weaponService: WeaponService, private messageService: MessageService) { }
+  constructor(private weaponService: WeaponService) { }
 
   ngOnInit() {
     this.getWeapons();
-    this.newWeapon = new Weapon();
   }
 
-  getWeapons() {
-    this.weaponService.getWeapons()
-      .subscribe(weapons => this.weapons = weapons);
+  getWeapons(): void {
+    this.weaponService.getWeapons().subscribe(weapons => this.weapons = weapons);
   }
 
-  addWeapon() {
-    if (this.isValid()) {
-      this.weaponService.addWeapon(this.newWeapon);
-      this.messageService.add("Création d'une nouvelle arme");
-    }
-  }
-
-  isValid(): boolean {
-    this.info = '';
-
-    if (this.newWeapon.name === '')
-      this.info = 'Veuillez indiquer un nom au héro';
-
-    return (this.info !== '');
-  }
 }

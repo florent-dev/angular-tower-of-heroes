@@ -26,7 +26,13 @@ export class HeroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getHero();
+    if (this.route.snapshot.paramMap.get('id')) {
+      this.getHero();
+    } else {
+      this.hero = new Hero();
+      this.hero.attack = 0; this.hero.damage = 0; this.hero.dodge = 0; this.hero.health = 0;
+    }
+
     this.getWeapons();
   }
 

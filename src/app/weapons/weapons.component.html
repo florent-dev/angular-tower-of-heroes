@@ -1,10 +1,25 @@
 <h2>Liste des armes</h2>
 
-<ul class="weapons">
-  <a *ngFor="let weapon of weapons" routerLink="/weapon/{{weapon.id}}" class="p-2 weapon bg-dark">
-    {{weapon.name}}
-  </a>
-</ul>
+<table id="tableSortWeapons" mdbTable>
+  <thead>
+  <tr>
+    <th *ngFor="let filter of filterElements; let i = index" aria-controls="tableSortWeapons" scope="col" [mdbTableSort]="weapons" [sortBy]="filterElements[i]">{{ filter | titlecase }}
+      ⇵
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let weapon of weapons; let i = index">
+    <th scope="row">
+      <a routerLink="/weapon/{{ weapon.id }}">{{ weapon.name }}</a>
+    </th>
+    <td>{{ weapon.attack }}</td>
+    <td>{{ weapon.health }}</td>
+    <td>{{ weapon.damage }}</td>
+    <td>{{ weapon.dodge }}</td>
+  </tr>
+  </tbody>
+</table>
 
 <hr>
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../services/hero.service';
 import { Hero } from "../entity/hero";
-import {MessageService} from "../services/message.service";
 
 @Component({
   selector: 'app-heroes',
@@ -10,35 +9,17 @@ import {MessageService} from "../services/message.service";
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
-  newHero: Hero;
-  info = '';
+  elements: any = [];
+  filterElements = ['name', 'attack', 'health', 'damage', 'dodge'];
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
     this.getHeroes();
-    this.newHero = new Hero();
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
-  }
-
-  addHero() {
-    if (this.isValid()) {
-      this.heroService.addHero(this.newHero);
-      this.messageService.add("création Héro test");
-    }
-  }
-
-  isValid(): boolean {
-    this.info = '';
-
-    if (this.newHero.name === '')
-      this.info = 'Veuillez indiquer un nom au héro';
-
-    return (this.info == '');
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
 }
