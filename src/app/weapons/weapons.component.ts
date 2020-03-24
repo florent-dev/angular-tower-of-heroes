@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WeaponService} from "../services/weapon.service";
 import {Weapon} from "../entity/weapon";
-import {MessageService} from "../services/message.service";
 
 @Component({
   selector: 'app-weapons',
@@ -21,6 +20,10 @@ export class WeaponsComponent implements OnInit {
 
   getWeapons(): void {
     this.weaponService.getWeapons().subscribe(weapons => this.weapons = weapons);
+  }
+
+  deleteWeapon(weapon: Weapon): void {
+    this.weaponService.deleteWeapon(weapon.id.toString());
   }
 
 }

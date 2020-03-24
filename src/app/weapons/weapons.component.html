@@ -6,6 +6,9 @@
     <th *ngFor="let filter of filterElements; let i = index" aria-controls="tableSortWeapons" scope="col" [mdbTableSort]="weapons" [sortBy]="filterElements[i]">{{ filter | titlecase }}
       ⇵
     </th>
+    <th>
+      Action
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -17,6 +20,7 @@
     <td>{{ weapon.health }}</td>
     <td>{{ weapon.damage }}</td>
     <td>{{ weapon.dodge }}</td>
+    <td><a (click)="deleteWeapon(weapon)" class="btn btn-danger btn-sm text-white">Supprimer</a></td>
   </tr>
   </tbody>
 </table>

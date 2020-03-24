@@ -51,17 +51,42 @@ export class HeroComponent implements OnInit {
     this.location.back();
   }
 
-  save() {
+  save(): void {
     if (this.validateForm()) {
-      this.heroService.updateHero(this.hero);
-      this.info = 'Succès des changements';
+      this.normalizeForm();
+      if (this.hero.id === null || this.hero.id === undefined) {
+        this.heroService.addHero(this.hero);
+        this.info = 'Succès de la création du héro: "' + this.hero.name + '"';
+      } else {
+        this.heroService.updateHero(this.hero);
+        this.info = 'Succès des changements';
+      }
     } else {
       this.info = 'Échec de l\'enregistrement, certaines données saisies sont invalides.';
     }
   }
 
+  /** Vérifie la validité du formulaire. **/
   validateForm(): boolean {
-    return (this.getPointsRestants() <= 40);
+    return (
+      this.getPointsRestants() <= 40
+      && this.hero.name !== undefined
+      && this.hero.name !== ''
+      && this.verifierPoints(this.hero.attack)
+      && this.verifierPoints(this.hero.health)
+      && this.verifierPoints(this.hero.damage)
+      && this.verifierPoints(this.hero.dodge)
+    );
+  }
+
+  /** Les points doivent être entre 1 et 40 **/
+  verifierPoints(point: number): boolean {
+    return (point >= 1 && point <= 40);
+  }
+
+  /** Normalise des champs de l'arme à la sauvegarde du formulaire. **/
+  normalizeForm(): void {
+    this.hero.name = this.hero.name.substr(0,1).toUpperCase() + this.hero.name.substr(1).toLowerCase();
   }
 
   getPointsRestants(): number {
